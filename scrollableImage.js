@@ -13,10 +13,11 @@
         setImage(:string:) : {
             imageSrc -> string: path of the image source
         }
-        getZoom() : {} -> returns the zoom value
         setZoom(:int:) : {
             value -> int: zoom level
         }
+        getZoom() : {} -> returns the zoom value
+        getImageSize() : {} -> return {width: (...), height: (...)}
     }
     Example : {
         let map = new ScrollableImage('idCanvas', 'res/img/map.jpg');
@@ -60,7 +61,8 @@ function ScrollableImage(canvasSelector, imageSrc) {
         scroll(nPos); pos = nPos;
     });
     
-    this.setImage = imageSrc => { img.src = imageSrc; }
-    this.setZoom = value => { zoom = value; }
-    this.getZoom = () => { return zoom; }
+    this.setImage = imageSrc => { img.src = imageSrc; };
+    this.getImageSize = () => { return {width: img.naturalWidth, height: img.naturalHeight}; };
+    this.setZoom = value => { zoom = value; };
+    this.getZoom = () => { return zoom; };
 }
