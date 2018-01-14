@@ -23,8 +23,8 @@
         map.setImage('res/img/map2.jpg');
     }
 */
-function ScrollableImage(canvasId, imageSrc) {
-    let canvas = document.querySelector('canvas');
+function ScrollableImage(canvasSelector, imageSrc) {
+    let canvas = document.querySelector(canvasSelector);
     let ctx = canvas.getContext('2d');
     
     let x = 0, y = 0, zoom = 1;
